@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F12642B1E62FB5D0010CA70 /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F12642A1E62FB5D0010CA70 /* PhotoInfo.swift */; };
 		4F135CF71E62D8A9000F231B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135CF61E62D8A9000F231B /* AppDelegate.swift */; };
 		4F135CFC1E62D8A9000F231B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F135CFA1E62D8A9000F231B /* Main.storyboard */; };
 		4F135CFE1E62D8A9000F231B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F135CFD1E62D8A9000F231B /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F12642A1E62FB5D0010CA70 /* PhotoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 		4F135CF31E62D8A9000F231B /* CatsOnMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatsOnMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F135CF61E62D8A9000F231B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F135CFB1E62D8A9000F231B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				4F135D081E62D90F000F231B /* CatsOnMapViewController.swift */,
+				4F12642A1E62FB5D0010CA70 /* PhotoInfo.swift */,
 				4F135CF61E62D8A9000F231B /* AppDelegate.swift */,
 				4F135CFA1E62D8A9000F231B /* Main.storyboard */,
 				4F135D0A1E62DE0A000F231B /* APIServise.swift */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F12642B1E62FB5D0010CA70 /* PhotoInfo.swift in Sources */,
 				4F135CF71E62D8A9000F231B /* AppDelegate.swift in Sources */,
 				4F135D091E62D90F000F231B /* CatsOnMapViewController.swift in Sources */,
 				4F135D0B1E62DE0A000F231B /* APIServise.swift in Sources */,

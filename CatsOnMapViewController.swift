@@ -21,11 +21,13 @@ class CatsOnMapViewController: UIViewController {
     
     func testRequest(){
         let servise = APIServise()
-        servise.find(searchWord: "котик", success: { _ in
+        servise.find(searchWord: "котик", success: { photos in
             
-        }) { _ in
+            print("а вот и котики:\(photos)")
             
+        }) { error in
+            
+        print("error:\(error)")
         }
     }
-    
 }

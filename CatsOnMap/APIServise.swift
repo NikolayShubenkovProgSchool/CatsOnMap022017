@@ -12,12 +12,13 @@ class APIServise
 {
     enum APIError:Error {
         case wrongResponse
+        case photosNotFound
     }
     
     private let session = URLSession(configuration: URLSessionConfiguration.default)
     
     //https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3d790e81c37781d21d0a4cbf7f563a9f&tags=cat&has_geo=&format=json&nojsoncallback=1&auth_token=72157680684632046-2372594dc9e309b7&api_sig=9a2b58395233f0950442451b1b42318e
-    func  find(searchWord:String, success:( ([Any])->Void),
+    func  find(searchWord:String, success:@escaping ( ([PhotoInfo])->Void),
                failure:@escaping ( (Error)->Void)) {
         let url = buildURL(with: searchWord)
         
@@ -27,7 +28,7 @@ class APIServise
         //возможную ошибку
         //
         let task = session.dataTask(with: url) { (data, response, error) in
-            print("response:\(response)\nerror:\(error)\ndata:\(data)")
+            print("response:\(response)\nerror:\(error)")
             
             guard error == nil else {
                 
@@ -54,14 +55,42 @@ class APIServise
                     failure(APIError.wrongResponse)
                     return
             }
-            print("\n\n\n---------\ndata:\(dictionary)")
             
+            let photos = self.buildPhotos(from: dictionary)
+            guard photos.count > 0 else {
+                failure(APIError.photosNotFound)
+                return
+            }
+            
+            success(photos)
         }
         //этот метод запустит выполнение нашей задачи
         //по получению данных из сети
         task.resume()
     }
-    func buildURL(with searchWord:String)->URL
+    
+    private func buildPhotos(from json:[String:Any])->[PhotoInfo]
+    {
+        //получим по ключу photos словарь
+        guard let photosContainer = json["photos"] as? [String:Any],
+            //для словаря photos попробуем получить массив словарей [String:Any]
+            let jsonList = photosContainer["photo"] as? [ [String:Any] ] else {
+                return []
+        }
+        
+        //пустой массив для наших объектов
+        var photos = [PhotoInfo]()
+        
+        //попробуем для каждого джейсона создать фото и вставит в массив
+        for photoJson in jsonList {
+            if let photo = PhotoInfo(json: photoJson) {
+                photos.append(photo)
+            }
+        }
+        return photos
+    }
+    
+    private func buildURL(with searchWord:String)->URL
     {
         let serviseLink = "https://api.flickr.com/services/rest/"
         
