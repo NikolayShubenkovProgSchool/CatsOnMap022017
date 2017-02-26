@@ -10,11 +10,56 @@ import Foundation
 
 class APIServise
 {
+    enum APIError:Error {
+        case wrongResponse
+    }
+    
+    private let session = URLSession(configuration: URLSessionConfiguration.default)
+    
     //https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3d790e81c37781d21d0a4cbf7f563a9f&tags=cat&has_geo=&format=json&nojsoncallback=1&auth_token=72157680684632046-2372594dc9e309b7&api_sig=9a2b58395233f0950442451b1b42318e
     func  find(searchWord:String, success:( ([Any])->Void),
-               failure:( (NSError)->Void)) {
-        buildURL(with: searchWord)
+               failure:@escaping ( (Error)->Void)) {
+        let url = buildURL(with: searchWord)
         
+        //будет создан объект типа URLSessionDataTask
+        //его назначение: получить из сети данные
+        //и выполнить блок кода, передав туда результат работы,
+        //возможную ошибку
+        //
+        let task = session.dataTask(with: url) { (data, response, error) in
+            print("response:\(response)\nerror:\(error)\ndata:\(data)")
+            
+            guard error == nil else {
+                
+                failure(error!)
+                return
+            }
+            //проверим, что от сервера пришел отет
+            //и помимо ответа пришли данные
+            guard let serverResponse = response as? HTTPURLResponse,
+                let jsonData = data else {
+                    failure(APIError.wrongResponse)
+                    return
+            }
+            
+            //
+            guard serverResponse.statusCode == 200 else {
+                failure(APIError.wrongResponse)
+                return
+            }
+            //попытаемся сконвертировать полученные данные в  словарь типа [String:Any]
+            guard let jsonObject = try? JSONSerialization.jsonObject(with: jsonData,
+                                                          options: []),
+                let dictionary = jsonObject as? [String:Any] else {
+                    failure(APIError.wrongResponse)
+                    return
+            }
+            print("\n\n\n---------\ndata:\(dictionary)")
+            
+        }
+        //этот метод запустит выполнение нашей задачи
+        //по получению данных из сети
+        task.resume()
     }
     func buildURL(with searchWord:String)->URL
     {
