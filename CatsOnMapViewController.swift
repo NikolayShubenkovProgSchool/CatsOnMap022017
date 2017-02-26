@@ -28,6 +28,15 @@ class CatsOnMapViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //проверим тип экрана, на который переходим
+        if let nextViewController = segue.destination as? PhotoDetailedViewController,
+            //убедимся, что нам передали фото, для отображения
+            let photo = sender as? PhotoInfo {
+            nextViewController.photoToShow = photo
+        }
+    }
+    
     private func updateMapView(){
         // удалим предыдущие метки
         clearMapView()
@@ -100,6 +109,21 @@ extension CatsOnMapViewController:MKMapViewDelegate
         
         photoView?.annotation = photoToShow
         
+        //добавим кнопку справа от текста на пине
+        photoView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        
         return photoView
     }
+    
+    //при нажатии на кнопку в пине, сработает этот метод
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        guard let photo = view.annotation as? PhotoInfo else {
+            return
+        }
+        
+        performSegue(withIdentifier: "Show Photo Detailes",
+                     sender: photo)
+    }
+    
 }
