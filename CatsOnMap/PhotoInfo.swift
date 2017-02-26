@@ -7,13 +7,19 @@
 //
 
 import Foundation
+import MapKit
 
-struct PhotoInfo {
+class PhotoInfo:NSObject, MKAnnotation {
     
     var latitude:Double
     var longitude:Double
     
-    var title:String
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: self.latitude,
+                                      longitude: self.longitude)
+    }
+    
+    var title:String?
     var iconLink:String
     var fullPhoto:String
     
