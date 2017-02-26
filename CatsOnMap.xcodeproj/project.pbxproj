@@ -12,6 +12,7 @@
 		4F135CFE1E62D8A9000F231B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F135CFD1E62D8A9000F231B /* Assets.xcassets */; };
 		4F135D011E62D8A9000F231B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F135CFF1E62D8A9000F231B /* LaunchScreen.storyboard */; };
 		4F135D091E62D90F000F231B /* CatsOnMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135D081E62D90F000F231B /* CatsOnMapViewController.swift */; };
+		4F135D0B1E62DE0A000F231B /* APIServise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F135D0A1E62DE0A000F231B /* APIServise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		4F135D001E62D8A9000F231B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F135D021E62D8A9000F231B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F135D081E62D90F000F231B /* CatsOnMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatsOnMapViewController.swift; sourceTree = "<group>"; };
+		4F135D0A1E62DE0A000F231B /* APIServise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				4F135CF61E62D8A9000F231B /* AppDelegate.swift */,
 				4F135CFA1E62D8A9000F231B /* Main.storyboard */,
+				4F135D0A1E62DE0A000F231B /* APIServise.swift */,
 				4F135CFD1E62D8A9000F231B /* Assets.xcassets */,
 				4F135CFF1E62D8A9000F231B /* LaunchScreen.storyboard */,
 				4F135D021E62D8A9000F231B /* Info.plist */,
@@ -138,6 +141,7 @@
 			files = (
 				4F135CF71E62D8A9000F231B /* AppDelegate.swift in Sources */,
 				4F135D091E62D90F000F231B /* CatsOnMapViewController.swift in Sources */,
+				4F135D0B1E62DE0A000F231B /* APIServise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
