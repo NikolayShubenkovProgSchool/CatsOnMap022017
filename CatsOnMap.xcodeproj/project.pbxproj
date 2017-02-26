@@ -22,7 +22,7 @@
 		4F135CFD1E62D8A9000F231B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F135D001E62D8A9000F231B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F135D021E62D8A9000F231B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4F135D081E62D90F000F231B /* CatsOnMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatsOnMapViewController.swift; sourceTree = "<group>"; };
+		4F135D081E62D90F000F231B /* CatsOnMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatsOnMapViewController.swift; sourceTree = SOURCE_ROOT; };
 		4F135D0A1E62DE0A000F231B /* APIServise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -40,7 +40,6 @@
 		4F135CEA1E62D8A9000F231B = {
 			isa = PBXGroup;
 			children = (
-				4F135D081E62D90F000F231B /* CatsOnMapViewController.swift */,
 				4F135CF51E62D8A9000F231B /* CatsOnMap */,
 				4F135CF41E62D8A9000F231B /* Products */,
 			);
@@ -57,6 +56,7 @@
 		4F135CF51E62D8A9000F231B /* CatsOnMap */ = {
 			isa = PBXGroup;
 			children = (
+				4F135D081E62D90F000F231B /* CatsOnMapViewController.swift */,
 				4F135CF61E62D8A9000F231B /* AppDelegate.swift */,
 				4F135CFA1E62D8A9000F231B /* Main.storyboard */,
 				4F135D0A1E62DE0A000F231B /* APIServise.swift */,
@@ -303,6 +303,7 @@
 				4F135D071E62D8A9000F231B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
